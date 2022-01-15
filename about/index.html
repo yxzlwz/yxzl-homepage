@@ -1,0 +1,347 @@
+<!--
+ * @Author: N0ts
+ * @Date: 2021-11-16 16:59:53
+ * @LastEditTime: 2021-12-03 11:11:21
+ * @Description: NutssssIndex2
+ * @FilePath: /NutssssIndex2/index.html
+ * @Mail：mail@n0ts.cn
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About 异想之旅</title>
+    <meta name="description" content="异想之旅" />
+    <meta name="keywords" content="异想之旅" />
+    <link rel="icon" href="./favicon.ico" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.10.1/viewer.min.css" rel="stylesheet" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="load">
+            <p>加载中...</p>
+            <div class="loadLove">
+                <div class="loadLeft"></div>
+                <div class="loadRight"></div>
+            </div>
+        </div>
+
+        <div class="Box">
+            <!-- ALL -->
+            <div id="Indexbox">
+                <!-- 遮罩层 -->
+                <div :class="{ blackWindow: true, blackWindowShow: tabState || menuTabState || pagesTabState }"
+                    @click="closeBlackWindow"></div>
+
+                <!-- 顶部菜单 -->
+                <div class="menu">
+                    <img src="./favicon.ico" alt="favicon" />
+                    <ul class="menuUL">
+                        <li>
+                            <a href="/" target="_blank">首页(L)</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">关于我(O)</a>
+                        </li>
+                        <li>
+                            <a href="https://start.yixiangzhilv.com/" target="_blank">起始页(V)</a>
+                        </li>
+                        <li>
+                            <a href="https://blog.csdn.net/weixin_44495599/" target="_blank">技术分享(E)</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Danny-Yxzl/" target="_blank">开源(L)</a>
+                        </li>
+                        <li>
+                            <a href="https://blog.yixiangzhilv.com/article/37" target="_blank">留言(Y)</a>
+                        </li>
+                        <li>
+                            <a href="mailto:mail@yixiangzhilv.com" target="_blank">联系我(N)</a>
+                        </li>
+                    </ul>
+                    <!-- 标题 -->
+                    <p>About 异想之旅</p>
+                </div>
+
+                <!-- 左侧菜单按钮 -->
+                <div class="leftBar">
+                    <div class="leftBarButtomMe" @click="changeTab"></div>
+                    <div class="leftBarButtomMenu" @click="changeMenuTab">
+                        <div class="div1"></div>
+                        <div class="div2"></div>
+                        <div class="div3"></div>
+                    </div>
+                    <div class="leftBarButtomPages" @click="changePagesTab"></div>
+                </div>
+
+                <!-- 左侧拉出菜单 我 -->
+                <div :class="{ leftBarMe: true, leftBarMeClick: tabState }">
+                    <div class="leftBarButtomClose" @click="closeBlackWindow">
+                        <div class="div1"></div>
+                        <div class="div2"></div>
+                    </div>
+                    <div class="img">
+                        <img src="./images/logo.png" alt="异想之旅" />
+                    </div>
+                    <div class="introduction">
+                        <h1>异想之旅</h1>
+                        <p>青岛的高中生，信竞选手，热爱全栈编程。</p>
+                    </div>
+                    
+                    <div class="connect">
+                        <a href="/" target="_blank">首页</a>
+                        <a href="#" target="_blank">关于</a>
+                        <a href="mailto:mail@yixiangzhilv.com" target="_blank">邮箱</a>
+                    </div>
+                </div>
+
+                <!-- 左侧拉出菜单 顶部菜单 -->
+                <div :class="{ leftBarTitleMenu: true, leftBarTitleMenuClick: menuTabState }">
+                    <div class="leftBarButtomClose" @click="closeBlackWindow">
+                        <div class="div1"></div>
+                        <div class="div2"></div>
+                    </div>
+                    <h1>导航</h1>
+                    <ul>
+                        <li>
+                            <a href="/" target="_blank">首页(L)</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">关于我(O)</a>
+                        </li>
+                        <li>
+                            <a href="https://start.yixiangzhilv.com/" target="_blank">起始页(V)</a>
+                        </li>
+                        <li>
+                            <a href="https://blog.csdn.net/weixin_44495599/" target="_blank">技术分享(E)</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Danny-Yxzl/" target="_blank">开源(L)</a>
+                        </li>
+                        <li>
+                            <a href="https://blog.yixiangzhilv.com/article/37" target="_blank">留言(Y)</a>
+                        </li>
+                        <li>
+                            <a href="mailto:mail@yixiangzhilv.com" target="_blank">联系我(N)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 左侧拉出菜单 页面 -->
+                <div :class="{ leftBarPages: true, leftBarPagesClick: pagesTabState }">
+                    <div class="leftBarButtomClose" @click="closeBlackWindow">
+                        <div class="div1"></div>
+                        <div class="div2"></div>
+                    </div>
+                    <div class="leftBarPagesBox">
+                        <h1>页面</h1>
+                        <div class="leftBarPagesOptine" @click="changePageIndex(0)">
+                            <img src="./images/stuck_out_tongue.png" alt="stuck_out_tongue" />
+                            <p>Hello World.md</p>
+                        </div>
+                        <div class="leftBarPagesOptine" @click="changePageIndex(1)">
+                            <img src="./images/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes" />
+                            <p>My Project.md</p>
+                        </div>
+                        <div class="leftBarPagesOptine" @click="changePageIndex(2)">
+                            <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye" />
+                            <p>404.md</p>
+                        </div>
+                        <div class="leftBarPagesOptine" @click="changePageIndex(3)">
+                            <img src="./images/icecream.png" alt="icecream" />
+                            <p>Essays.md</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 页面版块1 -->
+                <div class="pages" id="pages">
+                    <!-- 页面选项卡 -->
+                    <div class="pagesTitle">
+                        <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 0 }"
+                            id="pagesTitleOption1" @click="changePageIndex(0)">
+                            <img src="./images/stuck_out_tongue.png" alt="stuck_out_tongue" />
+                            <p>Hello World.md</p>
+                        </div>
+                        <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 1 }"
+                            @click="changePageIndex(1)">
+                            <img src="./images/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes" />
+                            <p>My Project.md</p>
+                        </div>
+                        <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 2 }"
+                            @click="changePageIndex(2)">
+                            <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye" />
+                            <p>404.md</p>
+                        </div>
+                        <!-- <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 3 }" id="pagesTitle2" @click="changePageIndex(3)">
+                            <img src="./images/icecream.png" alt="icecream" />
+                            <p>Essays.md</p>
+                        </div> -->
+                    </div>
+
+                    <!-- 页面 -->
+                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 0 }">
+                        <div class="pagesTextBox">
+                            <h1>你好，我是异想之旅<br />热爱编程，骑行，听歌。</h1>
+                            <br />
+                            <p>异想之旅最早是2018年4月1日我随手注册的公众号</p>
+                            <p>名字的由来记不得了，好像最开始想叫奇幻之路，只是由于重名，不断更改的过程中碰上了这个“无人认领”的名字</p>
+                            <p>那时这甚至还是一个声音频道，也不知什么时候成为了我的技术分享？</p>
+                            <p><del>FBI WARNING: 不要去翻我的旧文章……</del></p>
+                            <div class="pagesTextBoxImg">
+                                <img src="./images/by.png" alt="背影" class="Img" />
+                                <h6>被LRH抓拍的</h6>
+                            </div>
+                            <p>2020年网课期间，闲来无事（划掉）学习了HTML</p>
+                            <p>9月，在学校编程选修课上无聊开发了一款命令行云存储软件</p>
+                            <p>从此入坑编程</p>
+                            <p>又在21年寒假联系到了北十一编程社团社长杨中天</p>
+                            <p>非常开心！一位热心的、教会了我很多知识的、告诉了我学习方向的大佬！！</p>
+                            <div class="pagesTextBoxImg">
+                                <img src="./images/xxd.jpg" alt="与XXD！" class="Img" />
+                                <h6>在金家岭</h6>
+                            </div>
+                            <p>对了我很喜欢骑行</p>
+                            <p>还有听音乐</p>
+                            <p>是一个对除学习之外的一切事情都感兴趣的学生会成员</p>
+                            <p>还是一个米粉</p>
+                            <div class="pagesTextBoxImg">
+                                <img src="./images/trip.jpg" alt="随手拍下" class="Img" />
+                                <h6>随手拍下</h6>
+                            </div>
+                            <p>还有，我在20年6月开始学习信竞</p>
+                            <p>目前最高成绩为山东省NOIP二等</p>
+                            <p>显然仍是一位蒟蒻</p>
+                            <div class="pagesTextBoxImg">
+                                <img src="./images/bcragfsh.jpg" alt="保持热爱，共赴山海！" class="Img" />
+                                <h6>2022加油</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 1 }" id="project">
+                        <div class="pagesTextBox">
+                            <h1>我的项目</h1>
+                            <ul class="giteeBoxUL" v-if="giteeData">
+                                <li v-for="(item, index) in giteeData" :key="index">
+                                    <div class="giteeBoxTitle">
+                                        <a target="_blank" :href="item.project_url"
+                                            style="color: rgb(110, 110, 110)">{{ item.cate }}</a>
+                                        /
+                                        <a target="_blank" :href="item.project_url">{{ item.name
+                                            }}</a>
+                                        <!-- <div class="starBox">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <span class="star">0</span>
+                                        </div> -->
+                                    </div>
+                                    <p class="giteeBoxText">{{ item.description }}</p>
+                                    <!-- <p class="giteeBoxTime">最后更新：{{ item.name }}</p> -->
+                                    <a target="_blank" :href="item.view_url"
+                                        class="aClick show">查看</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 2 }">
+                        <div class="pagesTextBox">
+                            <h1>暂无</h1>
+                            <p>没想好放点什么</p>
+                        </div>
+                    </div>
+                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 3 }">
+                        <div class="pagesTextBox">
+                            <h1>随手记下</h1>
+                            <br />
+                            <p>明知道总有一日</p>
+                            <p>所有的悲欢都将离我而去</p>
+                            <p>我依然竭力地搜索</p>
+                            <p>搜索那些美丽的</p>
+                            <p>值得为她活一次的记忆</p>
+                            <p style="margin-left: 35%;">--「席慕容」</p>
+                            <div class="pagesTextBoxImg">
+                                <img src="./images/qhc.jpg" alt="天青色等烟雨 而我在等你" class="Img" />
+                                <!-- <h6>我们的第一张合影</h6> -->
+                            </div>
+                            <p>有人说这生命如长河</p>
+                            <p>我们度的风波</p>
+                            <p>是人世间最寻常的颠簸</p>
+                            <p>它不足以让我们修成正果</p>
+                            <p>却足以让我们难忘难舍</p>
+                            <p style="margin-left: 35%;">--「未闻花名·周深」</p>
+                            <!-- <div class="pagesTextBoxImg">
+                                <img src="./images/love2.jpg" alt="love2" class="Img" />
+                                <h6>看电影日常</h6>
+                            </div> -->
+                            <!-- <a href="https://lovexhj.cn" class="aClick" target="_blank">More?</a> -->
+                            <br />
+                            <br />
+                            <p style="text-align: center; font-weight: bolder;">{{ timeText }}</p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 页面版块2 -->
+                <div class="pages pages2">
+                    <div class="pagesTitle">
+                        <div class="pagesTitleOption pagesTitleOption-click">
+                            <img src="./images/icecream.png" alt="icecream" />
+                            <p>Essays.md</p>
+                        </div>
+                    </div>
+
+                    <div class="pagesText pagesTextShow">
+                        <div class="pagesTextBox pagesTextBox2">
+                            <h1>随手记下</h1>
+                            <br />
+                            <p>明知道总有一日</p>
+                            <p>所有的悲欢都将离我而去</p>
+                            <p>我依然竭力地搜索</p>
+                            <p>搜索那些美丽的</p>
+                            <p>值得为她活一次的记忆</p>
+                            <p style="margin-left: 35%;">--「席慕容」</p>
+                            <div class="pagesTextBoxImg">
+                                <img src="./images/qhc.jpg" alt="天青色等烟雨 而我在等你" class="Img" />
+                                <!-- <h6>我们的第一张合影</h6> -->
+                            </div>
+                            <p>有人说这生命如长河</p>
+                            <p>我们度的风波</p>
+                            <p>是人世间最寻常的颠簸</p>
+                            <p>它不足以让我们修成正果</p>
+                            <p>却足以让我们难忘难舍</p>
+                            <p style="margin-left: 35%;">--「未闻花名·周深」</p>
+                            <!-- <div class="pagesTextBoxImg">
+                                <img src="./images/love2.jpg" alt="love2" class="Img" />
+                                <h6>看电影日常</h6>
+                            </div> -->
+                            <!-- <a href="https://lovexhj.cn" class="aClick" target="_blank">More?</a> -->
+                            <br />
+                            <br />
+                            <p style="text-align: center; font-weight: bolder;">{{ timeText }}</p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部版权 -->
+                <div class="footer">
+                    <p class="left">&copy; 2022 异想之旅</p>
+                    <p class="right"><a href="http://beian.miit.gov.cn">鲁ICP备2020034769号</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.10.1/viewer.min.js"></script>
+    <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>
