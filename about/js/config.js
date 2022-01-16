@@ -15,8 +15,8 @@ export default {
             cate: "自建项目",
             name: "锐哥加速器RBSI",
             description: "Rui Brother Speed Improver: 锐哥是JJL一位深受大家欢迎的同学……因此，锐哥加速器无加速功能。",
-            project_url: "https://start.yixiangzhilv.com/",
-            view_url: "https://start.yixiangzhilv.com/"
+            project_url: "https://github.com/Danny-Yxzl/RUI",
+            view_url: "https://github.com/Danny-Yxzl/RUI"
         },
         {
             cate: "部署项目",
