@@ -1,3 +1,5 @@
+const images = 8;
+
 var iUp = (function () {
 	var t = 0,
 		d = 150,
@@ -36,7 +38,8 @@ function getBingImages(imgUrls) {
 	var indexName = "bing-image-index";
 	var index = sessionStorage.getItem(indexName);
 	var $panel = $('#panel');
-	if (isNaN(index) || index == 7) index = 0;
+	if (isNaN(index)) index = Math.round(Math.random() * 100) % 8;
+	else if (index == 8) index = 0;
 	else index++;
 	var imgUrl = imgUrls[index];
 	var url = "https://www.bing.com" + imgUrl;
@@ -81,22 +84,22 @@ $('.btn-mobile-menu__icon').click(function () {
 
 
 const weather_icon = {
-    "qing": "☀",
-    "yun": "🌤",
-    "yin": "☁",
-    "yu": "🌧️",
-    "wu": "🌫",
-    "lei": "🌩️",
-    "shachen": "🌪",
-    "xue": "🌨️",
-    "bingbao": "💧"
+	"qing": "☀",
+	"yun": "🌤",
+	"yin": "☁",
+	"yu": "🌧️",
+	"wu": "🌫",
+	"lei": "🌩️",
+	"shachen": "🌪",
+	"xue": "🌨️",
+	"bingbao": "💧"
 }
 
 $.post("https://yiketianqi.com/api?version=v6&appid=87864392&appsecret=Y4N9ytz7", function (result) {
-    // result = $.parseJSON(result)
-    console.log(result)
-    $("#weather-city").text(result["city"])
-    $("#weather-temp").text(result["tem"] + "℃")
-    $("#weather-icon").text(weather_icon[result["wea_img"]])
-    $(".weather").attr("title", "更新时间:" + result["update_time"])
+	// result = $.parseJSON(result)
+	console.log(result)
+	$("#weather-city").text(result["city"])
+	$("#weather-temp").text(result["tem"] + "℃")
+	$("#weather-icon").text(weather_icon[result["wea_img"]])
+	$(".weather").attr("title", "更新时间:" + result["update_time"])
 })
