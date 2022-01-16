@@ -1064,3 +1064,8 @@ h2 {
         position: unset;
     }
 }
+
+
+.pagesTextBox > p {
+    margin: 15px;
+}
