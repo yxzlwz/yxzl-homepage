@@ -1,4 +1,23 @@
 const images = 8;
+const weather_icon = {
+	"qing": "☀",
+	"yun": "🌤",
+	"yin": "☁",
+	"yu": "🌧️",
+	"wu": "🌫",
+	"lei": "🌩️",
+	"shachen": "🌪",
+	"xue": "🌨️",
+	"bingbao": "💧"
+}
+
+// motto随机展示
+// const mottos = [
+// 	"永远相信美好的事情即将发生",
+// 	"不负热爱，共赴山海！",
+// 	"一如既往，万事胜意"
+// ]
+// $("#motto").text(mottos[Math.round(Math.random() * 1000) % (mottos.length)])
 
 var iUp = (function () {
 	var t = 0,
@@ -20,7 +39,8 @@ var iUp = (function () {
 				$(e).toggleClass("up")
 			}, t);
 			t += d;
-		};
+		}
+		;
 	return {
 		clean: clean,
 		up: up,
@@ -52,6 +72,16 @@ function getBingImages(imgUrls) {
 $(document).ready(function () {
 
 	// 获取一言数据
+
+	$.post("https://yiketianqi.com/api?version=v6&appid=87864392&appsecret=Y4N9ytz7", function (result) {
+		// result = $.parseJSON(result)
+		console.log(result)
+		$("#weather-city").text(result["city"])
+		$("#weather-temp").text(result["tem"] + "℃")
+		$("#weather-icon").text(weather_icon[result["wea_img"]])
+		$(".weather").attr("title", "更新时间:" + result["update_time"])
+	})
+
 	fetch('https://v1.hitokoto.cn').then(function (res) {
 		return res.json();
 	}).then(function (e) {
@@ -60,13 +90,18 @@ $(document).ready(function () {
 		console.error(err);
 	})
 
-	$(".iUp").each(function (i, e) {
-		iUp.up(e);
-	});
+	setTimeout(
+		function () {
+			$(".iUp").each(function (i, e) {
+				iUp.up(e);
+			});
 
-	$(".js-avatar")[0].onload = function () {
-		$(".js-avatar").addClass("show");
-	}
+			$(".js-avatar")[0].onload = function () {
+				$(".js-avatar").addClass("show");
+			}
+
+			setTimeout('$("#weather").show()', 1000);
+		}, 250);
 });
 
 $('.btn-mobile-menu__icon').click(function () {
@@ -82,25 +117,3 @@ $('.btn-mobile-menu__icon').click(function () {
 	}
 	$('.btn-mobile-menu__icon').toggleClass('social iconfont icon-list social iconfont icon-angleup animated fadeIn');
 });
-
-
-const weather_icon = {
-	"qing": "☀",
-	"yun": "🌤",
-	"yin": "☁",
-	"yu": "🌧️",
-	"wu": "🌫",
-	"lei": "🌩️",
-	"shachen": "🌪",
-	"xue": "🌨️",
-	"bingbao": "💧"
-}
-
-$.post("https://yiketianqi.com/api?version=v6&appid=87864392&appsecret=Y4N9ytz7", function (result) {
-	// result = $.parseJSON(result)
-	console.log(result)
-	$("#weather-city").text(result["city"])
-	$("#weather-temp").text(result["tem"] + "℃")
-	$("#weather-icon").text(weather_icon[result["wea_img"]])
-	$(".weather").attr("title", "更新时间:" + result["update_time"])
-})
