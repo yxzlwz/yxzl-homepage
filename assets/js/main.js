@@ -38,9 +38,10 @@ function getBingImages(imgUrls) {
 	var indexName = "bing-image-index";
 	var index = sessionStorage.getItem(indexName);
 	var $panel = $('#panel');
-	if (isNaN(index)) index = Math.round(Math.random() * 100) % 8;
-	else if (index == 8) index = 0;
+	if (isNaN(index)) { index = Math.round(Math.random() * 100) % 8; }
+	else if (index == images - 1) index = 0;
 	else index++;
+	console.log(index, imgUrls[index], imgUrls.length)
 	var imgUrl = imgUrls[index];
 	var url = "https://www.bing.com" + imgUrl;
 	$panel.css("background", "url('" + url + "') center center no-repeat #666");
