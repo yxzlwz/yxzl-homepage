@@ -4,7 +4,7 @@ var CronJob = require('cron').CronJob;
 
 
 new CronJob('0 0 */1 * * *', function () {
-    console.log(new Date())
+    console.log(new Date().toLocaleString())
     request('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&mkt=zh-CN', (err, res, body) => {
         let url = "", data = JSON.parse(res.body)["images"];
         for (let i = 0; i < data.length; i++) {
