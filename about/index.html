@@ -17,8 +17,8 @@
     <meta name="description" content="异想之旅" />
     <meta name="keywords" content="异想之旅" />
     <link rel="icon" href="./favicon.ico" />
-    <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.10.1/viewer.min.css" rel="stylesheet" />
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/viewerjs/1.10.1/viewer.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.10.2/css/all.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -93,7 +93,7 @@
                         <h1>异想之旅</h1>
                         <p>青岛的高中生，信竞选手，热爱全栈编程。</p>
                     </div>
-                    
+
                     <div class="connect">
                         <a href="/" target="_blank">首页</a>
                         <a href="#" target="_blank">关于</a>
@@ -230,8 +230,8 @@
                             <ul class="giteeBoxUL" v-if="giteeData">
                                 <li v-for="(item, index) in giteeData" :key="index">
                                     <div class="giteeBoxTitle">
-                                        <a target="_blank" :href="item.project_url"
-                                            style="color: rgb(110, 110, 110)">{{ item.cate }}</a>
+                                        <a target="_blank" :href="item.project_url" style="color: rgb(110, 110, 110)">{{
+                                            item.cate }}</a>
                                         /
                                         <a target="_blank" :href="item.project_url">{{ item.name
                                             }}</a>
@@ -242,8 +242,7 @@
                                     </div>
                                     <p class="giteeBoxText">{{ item.description }}</p>
                                     <!-- <p class="giteeBoxTime">最后更新：{{ item.name }}</p> -->
-                                    <a target="_blank" :href="item.view_url"
-                                        class="aClick show">查看</a>
+                                    <a target="_blank" :href="item.view_url" class="aClick show">查看</a>
                                 </li>
                             </ul>
                         </div>
@@ -258,6 +257,7 @@
                         <div class="pagesTextBox">
                             <h1>随手记下</h1>
                             <br />
+                            <p style="text-align: center; font-weight: bolder;">{{ timeText }}</p>
                             <p>明知道总有一日</p>
                             <p>所有的悲欢都将离我而去</p>
                             <p>我依然竭力地搜索</p>
@@ -274,15 +274,6 @@
                             <p>它不足以让我们修成正果</p>
                             <p>却足以让我们难忘难舍</p>
                             <p style="margin-left: 35%;">--「未闻花名·周深」</p>
-                            <!-- <div class="pagesTextBoxImg">
-                                <img src="./images/love2.jpg" alt="love2" class="Img" />
-                                <h6>看电影日常</h6>
-                            </div> -->
-                            <!-- <a href="https://lovexhj.cn" class="aClick" target="_blank">More?</a> -->
-                            <br />
-                            <br />
-                            <p style="text-align: center; font-weight: bolder;">{{ timeText }}</p>
-                            <br />
                         </div>
                     </div>
                 </div>
@@ -300,6 +291,32 @@
                         <div class="pagesTextBox pagesTextBox2">
                             <h1>随手记下</h1>
                             <br />
+                            <p style="text-align: center; font-weight: bolder;">{{ timeText }}</p>
+                            <div class="music-container" id="music-container">
+                                <div class="music-info">
+                                    <h4 id="music-title"></h4>
+                                    <div class="progress-container" id="progress-container">
+                                        <div class="progress" id="progress"></div>
+                                    </div>
+                                </div>
+
+                                <audio src="./music/sxj.mp3" id="audio"></audio>
+
+                                <div class="img-container">
+                                    <img src="./images/icecream.png" alt="music-cover" id="cover" />
+                                </div>
+                                <div class="navigation">
+                                    <button id="prev" class="action-btn">
+                                        <i class="fas fa-backward"></i>
+                                    </button>
+                                    <button id="play" class="action-btn action-btn-big">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button id="next" class="action-btn">
+                                        <i class="fas fa-forward"></i>
+                                    </button>
+                                </div>
+                            </div>
                             <p>明知道总有一日</p>
                             <p>所有的悲欢都将离我而去</p>
                             <p>我依然竭力地搜索</p>
@@ -321,10 +338,6 @@
                                 <h6>看电影日常</h6>
                             </div> -->
                             <!-- <a href="https://lovexhj.cn" class="aClick" target="_blank">More?</a> -->
-                            <br />
-                            <br />
-                            <p style="text-align: center; font-weight: bolder;">{{ timeText }}</p>
-                            <br />
                         </div>
                     </div>
                 </div>
@@ -342,6 +355,7 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.10.1/viewer.min.js"></script>
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/music.js" type="module"></script>
 </body>
 
 </html>
