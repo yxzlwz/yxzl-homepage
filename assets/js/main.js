@@ -56,37 +56,42 @@ function getBingImages(imgUrls) {
 	 * 然后读取 images.json 文件中的数据
 	 */
 	var indexName = "bing-image-index";
-	var index = sessionStorage.getItem(indexName);
+	var index = localStorage.getItem(indexName);
 	var $panel = $('#panel');
 	if (isNaN(index)) { index = Math.round(Math.random() * 100) % 8; }
 	else if (index == images - 1) index = 0;
 	else index++;
-	console.log(index, imgUrls[index], imgUrls.length)
+	// console.log(index, imgUrls[index], imgUrls.length)
 	var imgUrl = imgUrls[index];
 	var url = "https://www.bing.com" + imgUrl;
 	$panel.css("background", "url('" + url + "') center center no-repeat #666");
 	$panel.css("background-size", "cover");
-	sessionStorage.setItem(indexName, index);
+	localStorage.setItem(indexName, index);
 }
 
 $(document).ready(function () {
 
-	let t = Number(sessionStorage.getItem("weather-update")), result;
-	console.log((Number(new Date()) - t) / 1000)
+	let t = Number(localStorage.getItem("weather-update")), result;
+	console.log((Number(new Date()) - t) / 1000, "秒", "更新:", !t || Number(new Date()) - t > 1800000)
 	try {
-		if (Number(new Date()) - t > 1800000) {
+		if (!t || Number(new Date()) - t > 1800000) {
 			$.post("https://yiketianqi.com/api?version=v6&appid=52921577&appsecret=g4B0LrhP", function (result) {
 				// result = $.parseJSON(result)
 				console.log(result);
-				sessionStorage.setItem("weather-update", Number(new Date()));
-				sessionStorage.setItem("weather-data", result);
+				$("#weather-city").text(result["city"])
+				$("#weather-temp").text(result["tem"] + "℃")
+				$("#weather-icon").text(weather_icon[result["wea_img"]])
+				$(".weather").attr("title", "更新时间:" + result["update_time"])
+				localStorage.setItem("weather-update", Number(new Date()));
+				localStorage.setItem("weather-data", JSON.stringify(result));
 			})
+		} else {
+			result = JSON.parse(localStorage.getItem("weather-data"));
+			$("#weather-city").text(result["city"])
+			$("#weather-temp").text(result["tem"] + "℃")
+			$("#weather-icon").text(weather_icon[result["wea_img"]])
+			$(".weather").attr("title", "更新时间:" + result["update_time"])
 		}
-		result = sessionStorage.getItem("weather-data");
-		$("#weather-city").text(result["city"])
-		$("#weather-temp").text(result["tem"] + "℃")
-		$("#weather-icon").text(weather_icon[result["wea_img"]])
-		$(".weather").attr("title", "更新时间:" + result["update_time"])
 	} catch (e) {
 		console.log(e)
 	}
