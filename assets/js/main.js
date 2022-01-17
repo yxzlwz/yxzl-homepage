@@ -75,7 +75,7 @@ $(document).ready(function () {
 	console.log((Number(new Date()) - t) / 1000)
 	try {
 		if (Number(new Date()) - t > 1800000) {
-			$.post("https://yiketianqi.com/api?version=v6&appid=87864392&appsecret=Y4N9ytz7", function (result) {
+			$.post("https://yiketianqi.com/api?version=v6&appid=52921577&appsecret=g4B0LrhP", function (result) {
 				// result = $.parseJSON(result)
 				console.log(result);
 				sessionStorage.setItem("weather-update", Number(new Date()));
