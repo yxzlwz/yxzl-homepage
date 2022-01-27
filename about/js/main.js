@@ -37,6 +37,7 @@ let diffSeconds = Math.floor(
     (diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds
 );
 
+Vue.config.devtools = true;
 new Vue({
     el: "#app",
     data: {
@@ -46,10 +47,11 @@ new Vue({
         pageIndex: 0, // 当前页面索引
         timeText: "", // 计时文案
         giteeData: c.giteeData, // 码云仓库数据
+        notice: []
     },
     created() {
         // 获取 Gitee 仓库信息
-        this.getGiteeData();
+        this.getNotice()
     },
     mounted() {
         // 计时器开始
@@ -67,6 +69,22 @@ new Vue({
         /**
          * 侧边菜单打开关闭
          */
+        getNotice() {
+            axios.post("https://board.yixiangzhilv.com/api", "room=notice&token=HLucVIFu")
+            .then(res => {
+                console.log(res["data"]["data"]);
+                res = res["data"]["data"];
+                for(let i = 0; i < res.length; i++){
+                    res[i]["time"] = moment(Number(res[i]["time"])).format('lll');
+                }
+                this.notice = res;
+            })
+            .catch(err => {
+                console.error(err);
+                this.notice = [];
+            })
+        },
+
         changeTab() {
             this.tabState = !this.tabState;
         },

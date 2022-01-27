@@ -43,8 +43,8 @@ export default {
             cate: "自建项目",
             name: "留言板",
             description: "快速记录下自己的想法。",
-            project_url: "https://chat.yixiangzhilv.com/",
-            view_url: "https://chat.yixiangzhilv.com/"
+            project_url: "https://github.com/Danny-Yxzl/board",
+            view_url: "https://board.yixiangzhilv.com/"
         },
         {
             cate: "自建项目",

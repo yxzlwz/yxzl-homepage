@@ -177,7 +177,7 @@
                         <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 2 }"
                             @click="changePageIndex(2)">
                             <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye" />
-                            <p>404.md</p>
+                            <p>Notice.md</p>
                         </div>
                         <!-- <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 3 }" id="pagesTitle2" @click="changePageIndex(3)">
                             <img src="./images/icecream.png" alt="icecream" />
@@ -249,8 +249,21 @@
                     </div>
                     <div :class="{ pagesText: true, pagesTextShow: pageIndex == 2 }">
                         <div class="pagesTextBox">
-                            <h1>暂无</h1>
-                            <p>没想好放点什么</p>
+                            <h1>公告栏</h1>
+                            <!-- <div v-for="item in notice">
+                                <h3>{{ item.content }}</h3>
+                                <p>1</p>
+                            </div> -->
+                            <ul class="giteeBoxUL">
+                                <li v-for="item in notice">
+                                    <div class="giteeBoxTitle">
+                                        来自 {{ item.user }}
+                                    </div>
+                                    <p class="giteeBoxText">{{ item.content }}</p>
+                                    <p class="giteeBoxTime">发送时间: {{ item.time }}</p>
+                                    <!-- <a target="_blank" :href="item.view_url" class="aClick show">查看</a> -->
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div :class="{ pagesText: true, pagesTextShow: pageIndex == 3 }">
@@ -351,9 +364,12 @@
         </div>
     </div>
 
-    <script src="https://cdn.staticfile.org/vue/2.6.9/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.6.9/vue.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/vue/2.6.9/vue.min.js"></script> -->
     <script src="https://cdn.staticfile.org/axios/0.21.0/axios.min.js"></script>
     <script src="https://cdn.staticfile.org/viewerjs/1.10.1/viewer.min.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.24.0/locale/zh-cn.js"></script>
     <script src="./js/main.js" type="module"></script>
     <script src="./js/music.js" type="module"></script>
 </body>
