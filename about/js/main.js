@@ -37,7 +37,6 @@ let diffSeconds = Math.floor(
     (diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds
 );
 
-Vue.config.devtools = true;
 new Vue({
     el: "#app",
     data: {
