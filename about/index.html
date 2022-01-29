@@ -395,6 +395,20 @@
     <script src="https://cdn.staticfile.org/moment.js/2.24.0/locale/zh-cn.js"></script>
     <script src="./js/main.js" type="module"></script>
     <script src="./js/music.js" type="module"></script>
+    <script>
+        let lovelyn = [76, 79, 86, 69, 76, 89, 78], skip = [20, 18, 9, 16, 17, 91, 13];
+        let lovelyn_index = 0;
+        document.onkeydown = function (e) {
+            if (e.keyCode in skip) return;
+            if (e.keyCode === lovelyn[lovelyn_index]) {
+                lovelyn_index++;
+                if (lovelyn_index >= lovelyn.length) {
+                    lovelyn_index = 0;
+                    window.open("https://lyn.我爱你/", "_blank");
+                }
+            } else lovelyn_index = 0;
+        }
+    </script>
 </body>
 
 </html>
