@@ -88,5 +88,13 @@ export default {
             project_url: "https://github.com/Danny-Yxzl/bilnn-python-sdk",
             view_url: "https://pypi.org/project/bilnn/"
         },
+    ],
+    links_data: [
+        {
+            name: "N0ts Blog",
+            url: "https://blog.n0ts.cn/",
+            description: "一个爱好钻研技术的咸鱼",
+            icon: "https://cdn.nutssss.cn/wp-content/uploads/2020/02/1581510626-head.png"
+        },
     ]
 };

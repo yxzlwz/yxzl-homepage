@@ -151,9 +151,13 @@
                         </div>
                         <div class="leftBarPagesOptine" @click="changePageIndex(2)">
                             <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye" />
-                            <p>404.md</p>
+                            <p>Notice.md</p>
                         </div>
                         <div class="leftBarPagesOptine" @click="changePageIndex(3)">
+                            <img src="./images/stuck_out_tongue_big_eyes.png" alt="stuck_out_tongue_big_eyes" />
+                            <p>Links.md</p>
+                        </div>
+                        <div class="leftBarPagesOptine" @click="changePageIndex(4)">
                             <img src="./images/icecream.png" alt="icecream" />
                             <p>Essays.md</p>
                         </div>
@@ -179,10 +183,11 @@
                             <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye" />
                             <p>Notice.md</p>
                         </div>
-                        <!-- <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 3 }" id="pagesTitle2" @click="changePageIndex(3)">
-                            <img src="./images/icecream.png" alt="icecream" />
-                            <p>Essays.md</p>
-                        </div> -->
+                        <div :class="{ pagesTitleOption: true, pagesTitleOptionClick: pageIndex == 3 }"
+                            @click="changePageIndex(3)">
+                            <img src="./images/stuck_out_tongue_big_eyes.png" alt="stuck_out_tongue_big_eyes" />
+                            <p>Links.md</p>
+                        </div>
                     </div>
 
                     <!-- 页面 -->
@@ -266,7 +271,25 @@
                             </ul>
                         </div>
                     </div>
-                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 3 }">
+                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 3 }" id="project">
+                        <div class="pagesTextBox">
+                            <h1>友情链接</h1>
+                            <ul class="giteeBoxUL" v-if="giteeData">
+                                <li v-for="(item, index) in links_data" :key="index">
+                                    <div class="giteeBoxTitle">
+                                        <a target="_blank" :href="item.url">
+                                            {{ item.name }}
+                                        </a>
+                                    </div>
+                                    <p class="giteeBoxText">
+                                        {{ item.description }}
+                                    </p>
+                                    <a target="_blank" :href="item.url" class="aClick show">查看</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div :class="{ pagesText: true, pagesTextShow: pageIndex == 4 }">
                         <div class="pagesTextBox">
                             <h1>随手记下</h1>
                             <br />
@@ -313,7 +336,7 @@
                                     </div>
                                 </div>
 
-                                <audio src="./music/sxj.mp3" id="audio"></audio>
+                                <audio src="" id="audio"></audio>
 
                                 <div class="img-container">
                                     <img src="./images/icecream.png" alt="music-cover" id="cover" />

@@ -46,7 +46,8 @@ new Vue({
         pageIndex: 0, // 当前页面索引
         timeText: "", // 计时文案
         giteeData: c.giteeData, // 码云仓库数据
-        notice: []
+        notice: [],
+        links_data: c.links_data
     },
     created() {
         // 获取 Gitee 仓库信息
@@ -71,7 +72,6 @@ new Vue({
         getNotice() {
             axios.post("https://board.yixiangzhilv.com/api", "room=notice&token=HLucVIFu")
             .then(res => {
-                console.log(res["data"]["data"]);
                 res = res["data"]["data"];
                 for(let i = 0; i < res.length; i++){
                     res[i]["time"] = moment(Number(res[i]["time"])).format('lll');
