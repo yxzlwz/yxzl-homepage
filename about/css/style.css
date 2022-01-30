@@ -871,7 +871,6 @@ h2 {
     display: block;
     width: 100%;
     height: auto;
-    padding: 30px 40px;
     background-color: #333842;
     border-radius: 20px;
     position: relative;
@@ -1219,4 +1218,41 @@ Music
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
+}
+
+.box_left {
+    display: block;
+    float: left;
+    width: 30%;
+}
+
+.box_left > img {
+    height: auto;
+}
+
+
+@media screen and (orientation:portrait) {
+    .box_left > img {
+        width: 100%;
+    }
+    .giteeBoxUL li{
+        padding: 30px 10px;
+        /* margin: 0 30px; */
+        width: 135%;
+    }
+}
+@media screen and (orientation:landscape) {
+    .box_left > img {
+        width: 60%;
+    }
+    .giteeBoxUL li{
+        padding: 30px 40px;
+        width: 100%;
+    }
+}
+
+.box_right {
+    display: block;
+    float: right;
+    width: 65%;
 }

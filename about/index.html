@@ -275,16 +275,21 @@
                         <div class="pagesTextBox">
                             <h1>友情链接</h1>
                             <ul class="giteeBoxUL" v-if="giteeData">
-                                <li v-for="(item, index) in links_data" :key="index">
-                                    <div class="giteeBoxTitle">
-                                        <a target="_blank" :href="item.url">
-                                            {{ item.name }}
-                                        </a>
+                                <li v-for="(item, index) in links_data" :key="index" style="height: 100px;">
+                                    <div class="box_left">
+                                        <img :src="item.logo" :alt="item.name"/>
                                     </div>
-                                    <p class="giteeBoxText">
-                                        {{ item.description }}
-                                    </p>
-                                    <a target="_blank" :href="item.url" class="aClick show">查看</a>
+                                    <div class="box_right">
+                                        <div class="giteeBoxTitle">
+                                            <a target="_blank" :href="item.url">
+                                                {{ item.name }}
+                                            </a>
+                                        </div>
+                                        <p class="giteeBoxText">
+                                            {{ item.description }}
+                                        </p>
+                                    </div>
+                                    <!-- <a target="_blank" :href="item.url" class="aClick show">查看</a> -->
                                 </li>
                             </ul>
                         </div>
