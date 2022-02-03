@@ -96,5 +96,11 @@ export default {
             description: "一个爱好钻研技术的咸鱼",
             logo: "https://cdn.nutssss.cn/wp-content/uploads/2020/02/1581510626-head.png"
         },
+        {
+            name: "一言",
+            url: "https://hitokoto.cn/",
+            description: "隶属于萌创团队——来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的",
+            logo: "https://hitokoto.cn/favicon.ico"
+        },
     ]
 };

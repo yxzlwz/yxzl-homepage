@@ -97,10 +97,10 @@ $(document).ready(function () {
 	}
 
 	// 获取一言数据
-	fetch('https://v1.hitokoto.cn').then(function (res) {
+	fetch('https://v1.hitokoto.cn/?c=a&c=b&c=c&c=d&c=e&c=f&c=g&c=h&c=j&c=k&c=l').then(function (res) {
 		return res.json();
 	}).then(function (e) {
-		$('#description').html(e.hitokoto + "<br/> -「<strong>" + e.from + "</strong>」")
+		$('#description').html(e.hitokoto + "<br/> -「<strong>" + e.from + "·" + e.from_who || "" + "</strong>」");
 	}).catch(function (err) {
 		console.error(err);
 	})
