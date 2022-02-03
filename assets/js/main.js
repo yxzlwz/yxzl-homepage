@@ -72,7 +72,7 @@ function getBingImages(imgUrls) {
 $(document).ready(function () {
 
 	let t = Number(localStorage.getItem("weather-update")), result;
-	console.log((Number(new Date()) - t) / 1000, "秒", "更新:", !t || Number(new Date()) - t > 1800000)
+	console.log((Number(new Date()) - t) / 1000 + "秒前更新\n本次更新情况为:", !t || Number(new Date()) - t > 1800000)
 	try {
 		if (!t || Number(new Date()) - t > 1800000) {
 			$.post("https://yiketianqi.com/api?version=v6&appid=52921577&appsecret=g4B0LrhP", function (result) {
@@ -98,12 +98,15 @@ $(document).ready(function () {
 
 	// 获取一言数据
 	fetch('https://v1.hitokoto.cn/?c=a&c=b&c=c&c=d&c=e&c=f&c=g&c=h&c=j&c=k&c=l').then(function (res) {
+		console.log(res);
 		return res.json();
 	}).then(function (e) {
-		$('#description').html(e.hitokoto + "<br/> -「<strong>" + e.from + "·" + e.from_who || "" + "</strong>」");
+		console.log(e);
+		$('#description').html(e.hitokoto + "<br/> -「<strong>" + e.from + (e.from_who && " · " + e.from_who || "") + "</strong>」");
 	}).catch(function (err) {
 		console.error(err);
 	})
+
 
 	setTimeout(
 		function () {
