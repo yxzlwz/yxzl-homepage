@@ -8,7 +8,7 @@
  */
 
 export default {
-    loveTime: Date.UTC(2022, 1, 4, 21, 52, 50), // 恋爱时间
+    loveTime: new Date(1641304370000), // 恋爱时间
     giteeName: "yxzlwz", // Gitee 账号名
     giteeData: [
         {
