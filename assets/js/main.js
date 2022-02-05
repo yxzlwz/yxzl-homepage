@@ -97,12 +97,14 @@ $(document).ready(function () {
 	}
 
 	// 获取一言数据
-	fetch('https://v1.hitokoto.cn/?c=a&c=b&c=c&c=d&c=e&c=f&c=g&c=h&c=j&c=k&c=l').then(function (res) {
-		console.log(res);
+	fetch('https://yiyan.yixiangzhilv.com/get').then(function (res) {
 		return res.json();
 	}).then(function (e) {
-		console.log(e);
-		$('#description').html(e.hitokoto + "<br/> -「<strong>" + e.from + (e.from_who && " · " + e.from_who || "") + "</strong>」");
+		if (e.from_who && e.from) {
+			$('#description').html(e.content + "<br/> -「<strong>" + e.from + " · " + e.from_who + "</strong>」");
+		} else {
+			$('#description').html(e.content + "<br/> -「<strong>" + e.from_who + "</strong>」");
+		}
 	}).catch(function (err) {
 		console.error(err);
 	})
@@ -119,7 +121,7 @@ $(document).ready(function () {
 			}
 
 			setTimeout('$("#weather").show()', 1000);
-		}, 250);
+		}, 500);
 });
 
 $('.btn-mobile-menu__icon').click(function () {
