@@ -34,10 +34,10 @@ export default {
         },
         {
             cate: "自建项目",
-            name: "异想之旅网盘",
-            description: "我的第一个Web项目，简单的网盘系统。开源版本为简易版。",
-            project_url: "https://github.com/Danny-Yxzl/netdisk-server",
-            view_url: "https://pan.yixiangzhilv.com/"
+            name: "亿言",
+            description: "灵感来源于一言, 分享优质句子, 允许用户提交, 开放源代码和API接口",
+            project_url: "https://github.com/Danny-Yxzl/yiyan",
+            view_url: "https://yiyan.yixiangzhilv.com/"
         },
         {
             cate: "自建项目",
@@ -101,6 +101,12 @@ export default {
             url: "https://hitokoto.cn/",
             description: "隶属于萌创团队——来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的",
             logo: "https://hitokoto.cn/favicon.ico"
+        },
+        {
+            name: "飞崖编程社区",
+            url: "https://code.tianchengz.cn/",
+            description: "提供在线运行多语言的服务，交流分享自己的项目",
+            logo: "https://code.tianchengz.cn/favicon.ico"
         },
     ]
 };
