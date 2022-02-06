@@ -103,7 +103,7 @@ $(document).ready(function () {
 		if (e.from_who && e.from) {
 			$('#description').html(e.content + "<br/> -「<strong>" + e.from + " · " + e.from_who + "</strong>」");
 		} else {
-			$('#description').html(e.content + "<br/> -「<strong>" + e.from_who + "</strong>」");
+			$('#description').html(e.content + "<br/> -「<strong>" + (e.from||e.from_who) + "</strong>」");
 		}
 	}).catch(function (err) {
 		console.error(err);
